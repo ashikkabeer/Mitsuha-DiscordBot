@@ -2,7 +2,6 @@ const { image,ask } = require("./ai.js");
 require('dotenv').config()
 const token = process.env.DISCORD_TOKEN
 const { Client, Events, GatewayIntentBits } = require('discord.js')
-const keepAlive = require(`./server`);
 const client = new Client({
     intents:
       [GatewayIntentBits.Guilds,
