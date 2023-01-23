@@ -40,9 +40,10 @@ const client = new Client({
        });
       }
    }
+   //announcement by bot
    if(message.channelId === '1066942697560088687') {
     client.channels.fetch('1058704077791432766').then(channel => {
-      channel.send('@everyone' + " " + message.content)
+      channel.send(message.content)
     })
    }
 
