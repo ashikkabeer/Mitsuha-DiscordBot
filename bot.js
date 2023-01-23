@@ -1,7 +1,7 @@
 const { image,ask } = require("./ai.js");
 require('dotenv').config()
 const token = process.env.DISCORD_TOKEN
-const { Client, Events, GatewayIntentBits, MembershipScreeningFieldType } = require('discord.js')
+const { Client, Events, GatewayIntentBits } = require('discord.js')
 const client = new Client({
     intents:
       [GatewayIntentBits.Guilds,
@@ -39,9 +39,10 @@ const client = new Client({
        });
       }
    }
+   //announcement by bot
    if(message.channelId === '1066942697560088687') {
     client.channels.fetch('1058704077791432766').then(channel => {
-      channel.send('@everyone' + " " + message.content)
+      channel.send(message.content)
     })
    }
 
