@@ -36,7 +36,7 @@ const client = new Client({
        const prompt = message.content;
        const answer = await ask(prompt); 
        client.channels.fetch(message.channelId).then(channel => {
-         channel.send(`<@${message.author.id}>` + answer + '\n  **bot by Ashik - TinkerHub MCET**')
+         channel.send(`<@${message.author.id}>` + answer)
        });
       }
    }
