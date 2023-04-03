@@ -23,17 +23,19 @@ const openai = new OpenAIApi(configuration);
 
   //chat-gpt-3 
   async function ask(prompt) {
-    const response = await openai.createCompletion({
-        model: "text-davinci-002",
-        prompt,
-        temperature: 0.7,
-        max_tokens: 256,
-        top_p: 1,
-        frequency_penalty: 0,
-        presence_penalty: 0,
-    });
-    const answer = response.data.choices[0].text;
-    return answer;
+    try {
+        const completion= await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [{"role": "system", "content": "you are a sassy and funny teacher"},
+              {role: "user", content: prompt}],
+            });
+          console.log(completion.data.choices[0].message.content);
+          return completion.data.choices[0].message.content
+          
+          
+    } catch (error) {
+        console.log(error.response);
+    }
 }
 module.exports = {
     image,
